@@ -6,15 +6,15 @@
 </head>
 <body>
 <h1>Login</h1> <hr>
-<img src="assets/img/portfolio/java_spring.png"/>
+<img src="assets/img/avataaars.svg" style="width: 30px "height="30px"/>
 
 <form action="/login" method="POST">
   <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-  email : <input type="text" name="username"> <br>
+  email : <input type="email" name="username"> <br>
   password : <input type="password" name="password"> <br>
   <button type="submit">Login</button>
 </form> <br>
 
-<a href="/signup">Go to join! →</a>
+<a href="/signup">회원가입 →</a>
 </body>
 </html>
