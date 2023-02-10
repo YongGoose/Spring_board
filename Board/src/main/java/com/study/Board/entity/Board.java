@@ -14,6 +14,29 @@ public class Board {
     @Column(name = "content")
     private String content;
 
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
+    public String getFilepath() {
+        return filepath;
+    }
+
+    public void setFilepath(String filepath) {
+        this.filepath = filepath;
+    }
+
+    @Column(name = "filename")
+    private String filename;
+
+    @Column(name = "filepath")
+    private String filepath;
+
+
     public Board() {
 
     }
