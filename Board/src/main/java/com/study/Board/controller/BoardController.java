@@ -2,7 +2,6 @@ package com.study.Board.controller;
 
 import com.study.Board.entity.Board;
 import com.study.Board.service.BoardService;
-import org.hibernate.type.StringNVarcharType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,8 +12,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class BoardController {
-    @Autowired
-    private BoardService boardService;
+    private final BoardService boardService;
+
+    @Autowired // 생성자 주입 방식으로 변경함
+    public BoardController(BoardService boardService) {
+        this.boardService = boardService;
+    }
 
     @GetMapping("/board/write") //local:8080/board/write
     public String boardWriteForm() {
@@ -27,7 +30,7 @@ public class BoardController {
         model.addAttribute("message", "글 작성이 완료 되었습니다.");
         model.addAttribute("searchUrl", "/board/list");
 
-        return "message";
+        return "Message";
     }
 
     @GetMapping("/board/list")

@@ -1,13 +1,11 @@
 package com.study.Board.service;
 
-import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import com.study.Board.entity.Board;
 import com.study.Board.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.swing.border.Border;
 import java.io.File;
 import java.util.List;
 import java.util.UUID;
@@ -15,8 +13,12 @@ import java.util.UUID;
 
 @Service
 public class BoardService {
+
+    private final BoardRepository boardRepository;
     @Autowired
-    private BoardRepository boardRepository;
+    public BoardService(BoardRepository boardRepository) {
+        this.boardRepository = boardRepository;
+    }
 
     public void write(Board board, MultipartFile file) throws Exception {
 
